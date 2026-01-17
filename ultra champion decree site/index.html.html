@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ðrex's Decree of the Ultra Champion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(
+          135deg,
+          #1a0f0a 0%,
+          #2d1810 50%,
+          #1a0f0a 100%
+        );
+        font-family: "IM Fell English", serif;
+        color: #d4c4a0;
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .tome-container {
+        max-width: 900px;
+        width: 100%;
+        background: linear-gradient(to bottom, #2d2416 0%, #1f1a10 100%);
+        border: 3px solid #8b6f3f;
+        border-radius: 8px;
+        box-shadow:
+          0 0 40px rgba(255, 200, 100, 0.3),
+          inset 0 0 60px rgba(0, 0, 0, 0.8),
+          0 10px 50px rgba(0, 0, 0, 0.9);
+        position: relative;
+        padding: 40px;
+      }
+
+      .tome-container::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: linear-gradient(45deg, #c9a961, #8b6f3f, #c9a961);
+        border-radius: 10px;
+        z-index: -1;
+        opacity: 0.6;
+      }
+
+      .corner-decoration {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-style: solid;
+        border-color: #c9a961;
+      }
+
+      .corner-decoration.top-left {
+        top: 15px;
+        left: 15px;
+        border-width: 2px 0 0 2px;
+      }
+
+      .corner-decoration.top-right {
+        top: 15px;
+        right: 15px;
+        border-width: 2px 2px 0 0;
+      }
+
+      .corner-decoration.bottom-left {
+        bottom: 15px;
+        left: 15px;
+        border-width: 0 0 2px 2px;
+      }
+
+      .corner-decoration.bottom-right {
+        bottom: 15px;
+        right: 15px;
+        border-width: 0 2px 2px 0;
+      }
+
+      .tome-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #8b6f3f;
+      }
+
+      .tome-title {
+        font-family: "Cinzel", serif;
+        font-size: 2.2em;
+        font-weight: 700;
+        color: #f4d58d;
+        text-shadow:
+          0 0 10px rgba(255, 200, 100, 0.8),
+          2px 2px 4px rgba(0, 0, 0, 0.9);
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+
+      .tome-subtitle {
+        font-family: "Cinzel", serif;
+        font-size: 1em;
+        color: #c9a961;
+        font-style: italic;
+        letter-spacing: 1px;
+      }
+
+      .scroll-content {
+        max-height: 65vh;
+        overflow-y: auto;
+        padding-right: 15px;
+        line-height: 1.8;
+        font-size: 1.05em;
+      }
+
+      .scroll-content::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      .scroll-content::-webkit-scrollbar-track {
+        background: #1a0f0a;
+        border-radius: 6px;
+        border: 1px solid #8b6f3f;
+      }
+
+      .scroll-content::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #c9a961, #8b6f3f);
+        border-radius: 6px;
+        border: 1px solid #5a4a2a;
+      }
+
+      .scroll-content::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #f4d58d, #c9a961);
+      }
+
+      .section-title {
+        font-family: "Cinzel", serif;
+        font-size: 1.5em;
+        color: #f4d58d;
+        margin: 30px 0 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 0 0 8px rgba(255, 200, 100, 0.6);
+        border-left: 4px solid #c9a961;
+        padding-left: 15px;
+      }
+
+      .section-title:first-child {
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: 15px;
+        text-align: justify;
+        color: #d4c4a0;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      }
+
+      .opening-text {
+        font-style: italic;
+        font-size: 1.1em;
+        color: #e4d4b0;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      .signature {
+        text-align: right;
+        font-family: "Cinzel", serif;
+        font-size: 1.3em;
+        color: #f4d58d;
+        margin-top: 30px;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba(255, 200, 100, 0.8);
+      }
+
+      .divider {
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          #c9a961,
+          transparent
+        );
+        margin: 25px 0;
+      }
+
+      @media (max-width: 768px) {
+        .tome-container {
+          padding: 25px;
+        }
+
+        .tome-title {
+          font-size: 1.6em;
+        }
+
+        .scroll-content {
+          font-size: 0.95em;
+          max-height: 70vh;
+        }
+
+        .section-title {
+          font-size: 1.2em;
+        }
+
+        .corner-decoration {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      strong {
+        color: #f4d58d;
+        font-weight: 600;
+      }
+
+      em {
+        color: #e4d4b0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tome-container">
+      <div class="corner-decoration top-left"></div>
+      <div class="corner-decoration top-right"></div>
+      <div class="corner-decoration bottom-left"></div>
+      <div class="corner-decoration bottom-right"></div>
+
+      <div class="tome-header">
+        <div class="tome-title">ÐREX'S DECREE</div>
+        <div class="tome-subtitle">Of the Ultra Champion</div>
+      </div>
+
+      <div class="scroll-content">
+        <p class="opening-text">
+          Set forth beneath the banners of Epic Battlegrounds, and bound by
+          steel, focus, and purpose.
+        </p>
+
+        <p>
+          Hear me—those who drift into war half-awake, those who chase damage
+          like moths to flame, those who type more than they fight. This decree
+          is not for you.
+        </p>
+
+        <p>
+          You who queue for distraction, who treat the battlefield like a tavern
+          brawl, who vanish when the first tower falls—turn away now. This is no
+          sermon for the casual. No comfort for the half-hearted. No refuge for
+          those who play at war while the true fight bleeds real.
+        </p>
+
+        <p>
+          I, <strong>Ðrex</strong>, the Fearless, the Destroyer, the
+          Indomitable, do hereby decree what it takes to stand as an Ultra
+          Champion in the blood-drenched fields of Azeroth's Epic Battlegrounds.
+        </p>
+
+        <div class="divider"></div>
+
+        <h2 class="section-title">I. What an Ultra Champion Is</h2>
+        <p>
+          An Ultra Champion is no mere soldier. They are pillars of ruin and
+          redemption—living monoliths carved from the wreckage of a thousand
+          lost battles, the kind of player whose existence changes the outcome
+          before the scoreboard even updates.
+        </p>
+
+        <p>
+          They are decisive. They are the fulcrum where chaos bends or breaks.
+          They do not participate in war—they dictate its rhythm.
+        </p>
+
+        <p>
+          Impact is the shadow that falls across the map—the moment the tide
+          turns because one soul refused to let it. A battleground is won by
+          awareness that sees the invisible, timing that strikes before the
+          enemy breathes, discipline that holds when every instinct screams to
+          break.
+        </p>
+
+        <p>
+          Lesser players fill space.
+          <strong>Ultra Champions fill graves.</strong>
+        </p>
+
+        <h2 class="section-title">II. The Law of Awareness</h2>
+        <p>
+          An Ultra Champion does not indulge in tunnel vision. They see the
+          whole battlefield—eyes sweep wide like a storm crow circling carrion.
+          They track every thread before it becomes a noose.
+        </p>
+
+        <p>
+          They understand where the pressure is truly going—not where the
+          loudest voices scream, but where the silent knife is already drawn.
+          They sense the feint before it lands, the lure before it snaps shut.
+        </p>
+
+        <p>
+          Awareness is not passive sight. It is predatory vigilance. It is the
+          difference between being the hunter and being hunted.
+        </p>
+
+        <h2 class="section-title">III. The Law of Intelligence</h2>
+        <p>
+          An Ultra Champion does not follow the leader like a leash-bound dog.
+          They think with the leader. They understand the intent beneath the
+          words, the victory hidden in the silence between calls.
+        </p>
+
+        <p>
+          They communicate when necessary—precision, not volume. Clarity, not
+          catharsis. A single word at the razor's edge: "Flank left." "Peel
+          healer." "Deny grave."
+        </p>
+
+        <p>
+          They do not follow the sheep. They think with the commander. Lesser
+          minds parrot calls. Ultra Champions complete them—before they are even
+          fully spoken.
+        </p>
+
+        <h2 class="section-title">IV. The Law of Discipline</h2>
+        <p>
+          An Ultra Champion wastes no time answering random toxicity—no debates
+          with defeatists, no wrestling with worms. The chat is a sewer; they do
+          not dive in to prove they can swim.
+        </p>
+
+        <p>
+          They remain respectful and stoic—because rage spent on chat is rage
+          stolen from the fight. They let toxicity slide off like spit on steel.
+          Their focus is a blade; their will iron.
+        </p>
+
+        <p>
+          Discipline is the quietest roar. Let lesser souls scream into the
+          void. You answer with action. You answer with victory.
+        </p>
+
+        <h2 class="section-title">V. The Law of Leadership Without a Crown</h2>
+        <p>
+          An Ultra Champion can lead the ignorant—without needing a throne.
+          Sometimes it's one clean sentence dropped into the chaos. Sometimes
+          it's moving first—stepping into the meat grinder so the hesitant see a
+          path carved in blood.
+        </p>
+
+        <p>
+          The true leader needs no crown because the crown is a burden for
+          lesser souls. They do not preach. They demonstrate. Lead without
+          asking. Guide without commanding.
+        </p>
+
+        <h2 class="section-title">VI. The Law of Priority</h2>
+        <p>
+          An Ultra Champion prioritizes objectives with ruthless clarity. They
+          do not chase side fights while flags burn. They know which objective
+          bleeds victory and which is a grave to be ignored.
+        </p>
+
+        <p>
+          They follow calls to the millisecond—not "soon," not "after this
+          cast," not "in a sec." Because in Epic Battlegrounds, timing is a
+          weapon. Hesitation is betrayal. Delay is death.
+        </p>
+
+        <p>
+          They ensure I am never alone. When the tide crashes against me, they
+          stand at my side—without needing to beg. If I stand alone, we are
+          already losing.
+        </p>
+
+        <h2 class="section-title">VII. The Law of Preparation</h2>
+        <p>
+          Ultra Champions do not arrive unprepared. They use what the war
+          provides: gliders, potions, web pulls, electric shocks—every extra
+          edge the battlefield offers—and they know when to use them.
+        </p>
+
+        <p>
+          Their gear shines because it must. All slots gemmed. Every enchant
+          possible. Every advantage secured. War is decided by inches. Ultra
+          Champions do not give away inches. They take them.
+        </p>
+
+        <h2 class="section-title">VIII. The Law of Endurance</h2>
+        <p>
+          An Ultra Champion does not quit when hope thins. They do not fold when
+          the first fight is lost. They do not surrender to the illusion of
+          inevitability—because inevitability is a lie told by the weak.
+        </p>
+
+        <p>
+          A battleground is never lost until the last second is strangled out of
+          it. Endurance is refusing to let defeat become contagious. They hold
+          the line when others scatter.
+        </p>
+
+        <p>
+          And when hope becomes ash… they still fight harder—because even the
+          final breath is a weapon.
+        </p>
+
+        <h2 class="section-title">IX. The Forge</h2>
+        <p>
+          Ultra Champions are not born. They are forged. And the forge is not
+          comfortable. It is a furnace of endless nights, where the weak are
+          reduced to slag and the strong are hammered until their bones remember
+          pain as purpose.
+        </p>
+
+        <p>
+          Times have changed—and so have I. My standards are iron. Boundaries
+          are sacred. Values are law. I lower them for no one—not anymore.
+        </p>
+
+        <p>
+          I went through the forge alone—and I am prepared to go through it
+          alone again, if I must. Because the flame does not die. It only waits
+          for worthy fuel.
+        </p>
+
+        <h2 class="section-title">X. The Oath of the Community</h2>
+        <p>
+          I seek not a tender family. I seek warriors who guard each other's
+          flanks in the storm. Champions whose arrival in battle makes my blood
+          sing with certainty.
+        </p>
+
+        <p>
+          I stopped searching for champions. They will find me—drawn to the
+          blaze, just as you did. My fire is hot. My flame burns brighter than
+          it ever has.
+        </p>
+
+        <p>
+          This is no gentle circle. This is a warband. A forge-fire fellowship.
+          A storm of spines and steel. Enter as strangers. Leave as legends—or
+          do not enter at all.
+        </p>
+
+        <h2 class="section-title">XI. The Final Rule</h2>
+        <p>
+          In Azeroth, there is only conquest. No mortal distractions. When I am
+          in Azeroth, I want Azeroth—pure, unfiltered, unapologetic. I am here
+          for war, for strategy, for conquest.
+        </p>
+
+        <p>
+          My sole purpose in Azeroth: To dominate the Epic Battlegrounds. Only
+          the Epic Battlegrounds. There, and only there, do I breathe fire.
+          There, and only there, does the legend live.
+        </p>
+
+        <p>
+          Step forward with standards, values, discipline, awareness, and steel.
+          Enter clean. Enter hungry. Enter ready to burn.
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+          <strong>Let this decree sear into your marrow:</strong> To stand as
+          Ultra Champion is to become the storm I summon. Prove your worth in
+          fire. Not in words. Not in promises. Prove it when the odds mock us,
+          when the last tower crumbles and the enemy chants our defeat.
+        </p>
+
+        <p>
+          If not? Stay out of my warpath and fade into the dust of the
+          forgotten.
+        </p>
+
+        <p class="opening-text">
+          This is no invitation. This is judgment. This is law.
+        </p>
+
+        <div class="signature">By my unyielding will,<br />Ðrex</div>
+      </div>
+    </div>
+  </body>
+</html>
